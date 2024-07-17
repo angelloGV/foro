@@ -4,6 +4,7 @@ package com.example.demo.controller;
 import com.example.demo.datosValidacion.TopicoValidacion;
 import com.example.demo.repositorio.CTopico;
 import com.example.demo.repositorio.TopicoRepositorio;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,10 +32,12 @@ public class ControllerForo {
         return topicoRepositorio.findAll();
     }
 
-    @DeleteMapping
-    public void eliminarcontenido()
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void eliminarcontenido(@PathVariable Long id)
     {
-        System.out.println("Ingreso Correctamente");
+        CTopico topico = topicoRepositorio.getReferenceById(id);
+        topicoRepositorio.delete(topico);
     }
 
 }
