@@ -10,7 +10,7 @@ public class Principal {
     private TopicoRepositorio topRepo;
     private UsuarioRepositorio userRepo;
 
-    public void Principal(){};
+    public Principal(){};
 
     public Principal(ComentarioRepositorio comentRepo,
                      TopicoRepositorio topRepo,
@@ -19,6 +19,7 @@ public class Principal {
         this.comentRepo = comentRepo;
         this.topRepo = topRepo;
         this.userRepo = userRepo;
+
     }
 
 }
